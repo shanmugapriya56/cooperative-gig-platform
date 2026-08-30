@@ -1,675 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AI Admin Dashboard</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAH Services | Customer Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="brand-mark">S</div>
+      <p class="eyebrow">SAH COOPERATIVE SERVICES</p>
+      <h1>Trusted help,<br>right at your door.</h1>
+      <p class="muted">Book verified local workers for your home and community.</p>
+      <label for="phone">Mobile number</label>
+      <div class="phone-field"><span>+91</span><input id="phone" type="tel" maxlength="10" placeholder="Enter 10-digit number" /></div>
+      <button id="sendOtp" class="primary full">Send OTP</button>
+      <div id="otpArea" class="otp-area hidden">
+        <p>Demo OTP: <strong>1234</strong></p>
+        <input id="otpInput" type="text" maxlength="4" placeholder="Enter OTP" />
+        <button id="verifyOtp" class="primary full">Verify & continue</button>
+      </div>
+      <p class="tiny">By continuing, you agree to receive booking updates by SMS/WhatsApp.</p>
+    </div>
+  </section>
 
-    <!-- SIDEBAR -->
+  <div id="app" class="app hidden">
     <aside class="sidebar">
-
-        <div class="logo">
-            <div class="logo-icon">AI</div>
-
-            <div>
-                <h2>AI ADMIN</h2>
-                <span>Control Center</span>
-            </div>
-        </div>
-
-        <nav>
-
-            <button class="nav-item active" onclick="showPage('dashboard', this)">
-                <span>▦</span>
-                Dashboard
-            </button>
-
-            <button class="nav-item" onclick="showPage('users', this)">
-                <span>👥</span>
-                Users
-            </button>
-
-            <button class="nav-item" onclick="showPage('workers', this)">
-                <span>👷</span>
-                Worker Verification
-            </button>
-
-            <button class="nav-item" onclick="showPage('services', this)">
-                <span>🛠</span>
-                Services
-            </button>
-
-            <button class="nav-item" onclick="showPage('bookings', this)">
-                <span>📅</span>
-                Bookings
-            </button>
-
-            <button class="nav-item" onclick="showPage('complaints', this)">
-                <span>⚠</span>
-                Complaints
-            </button>
-
-            <button class="nav-item" onclick="showPage('payments', this)">
-                <span>₹</span>
-                Payments
-            </button>
-
-            <button class="nav-item" onclick="showPage('fraud', this)">
-                <span>🛡</span>
-                Fraud & Safety
-            </button>
-
-            <button class="nav-item" onclick="showPage('ai', this)">
-                <span>🤖</span>
-                AI Decisions
-            </button>
-
-            <button class="nav-item" onclick="showPage('reports', this)">
-                <span>📊</span>
-                Reports
-            </button>
-
-            <button class="nav-item" onclick="showPage('settings', this)">
-                <span>⚙</span>
-                Settings
-            </button>
-
-        </nav>
-
-        <div class="admin-profile">
-
-            <div class="avatar">
-                A
-            </div>
-
-            <div>
-                <strong>AI Administrator</strong>
-                <small>System Manager</small>
-            </div>
-
-        </div>
-
+      <div class="logo"><span>SAH</span><small>cooperative services</small></div>
+      <nav>
+        <button class="nav-link active" data-page="home">⌂ <span>Home</span></button>
+        <button class="nav-link" data-page="book">＋ <span>Book a service</span></button>
+        <button class="nav-link" data-page="bookings">▣ <span>My bookings</span></button>
+        <button class="nav-link" data-page="history">◷ <span>History & invoices</span></button>
+        <button class="nav-link" data-page="support">? <span>Help & support</span></button>
+      </nav>
+      <div class="sidebar-bottom"><button id="logout" class="text-btn">Log out</button><p>Address and phone details are shared only with your assigned worker.</p></div>
     </aside>
 
-
-    <!-- MAIN AREA -->
-    <main class="main">
-
-        <!-- TOP BAR -->
-        <header class="topbar">
-
-            <div>
-                <h1 id="pageTitle">Dashboard</h1>
-                <p id="pageSubtitle">
-                    AI-powered platform monitoring and governance
-                </p>
-            </div>
-
-            <div class="top-actions">
-
-                <button class="notification">
-                    🔔
-                    <span>3</span>
-                </button>
-
-                <div class="status">
-                    <span class="status-dot"></span>
-                    AI System Online
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <!-- DASHBOARD PAGE -->
-        <section id="dashboard" class="page active-page">
-
-            <!-- STAT CARDS -->
-
-            <div class="stats-grid">
-
-                <div class="stat-card">
-                    <div class="stat-icon blue">👥</div>
-
-                    <div>
-                        <p>Total Users</p>
-                        <h2>2,450</h2>
-                        <small class="positive">↑ 12.5% this month</small>
-                    </div>
-                </div>
-
-
-                <div class="stat-card">
-                    <div class="stat-icon purple">👷</div>
-
-                    <div>
-                        <p>Active Workers</p>
-                        <h2>620</h2>
-                        <small class="positive">↑ 8.2% this month</small>
-                    </div>
-                </div>
-
-
-                <div class="stat-card">
-                    <div class="stat-icon orange">📅</div>
-
-                    <div>
-                        <p>Active Bookings</p>
-                        <h2>184</h2>
-                        <small>Currently in progress</small>
-                    </div>
-                </div>
-
-
-                <div class="stat-card">
-                    <div class="stat-icon red">⚠</div>
-
-                    <div>
-                        <p>Pending Issues</p>
-                        <h2>17</h2>
-                        <small class="negative">5 require attention</small>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <!-- AI OVERVIEW -->
-
-            <div class="ai-banner">
-
-                <div class="ai-circle">
-                    🤖
-                </div>
-
-                <div class="ai-text">
-
-                    <h2>AI Administration is Active</h2>
-
-                    <p>
-                        The AI is monitoring worker verification,
-                        complaints, fraud signals and platform activity.
-                    </p>
-
-                </div>
-
-                <div class="ai-score">
-
-                    <span>System Health</span>
-
-                    <strong>98.4%</strong>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONTENT GRID -->
-
-            <div class="content-grid">
-
-
-                <!-- WORKER VERIFICATION -->
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <div>
-                            <h2>Worker Verification</h2>
-                            <p>AI-processed applications</p>
-                        </div>
-
-                        <button class="view-button"
-                            onclick="showPage('workers')">
-                            View All
-                        </button>
-
-                    </div>
-
-
-                    <div class="worker-list">
-
-                        <div class="worker">
-
-                            <div class="worker-avatar">
-                                RK
-                            </div>
-
-                            <div class="worker-info">
-
-                                <strong>Ravi Kumar</strong>
-
-                                <span>Electrician</span>
-
-                            </div>
-
-                            <span class="badge low">
-                                Low Risk
-                            </span>
-
-                            <button class="review-button"
-                                onclick="reviewWorker('Ravi Kumar')">
-                                Review
-                            </button>
-
-                        </div>
-
-
-                        <div class="worker">
-
-                            <div class="worker-avatar">
-                                AS
-                            </div>
-
-                            <div class="worker-info">
-
-                                <strong>Anitha S</strong>
-
-                                <span>Plumber</span>
-
-                            </div>
-
-                            <span class="badge medium">
-                                Review
-                            </span>
-
-                            <button class="review-button"
-                                onclick="reviewWorker('Anitha S')">
-                                Review
-                            </button>
-
-                        </div>
-
-
-                        <div class="worker">
-
-                            <div class="worker-avatar">
-                                MK
-                            </div>
-
-                            <div class="worker-info">
-
-                                <strong>Manoj Kumar</strong>
-
-                                <span>AC Technician</span>
-
-                            </div>
-
-                            <span class="badge low">
-                                Low Risk
-                            </span>
-
-                            <button class="review-button"
-                                onclick="reviewWorker('Manoj Kumar')">
-                                Review
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- COMPLAINTS -->
-
-                <div class="panel">
-
-                    <div class="panel-header">
-
-                        <div>
-                            <h2>Recent Complaints</h2>
-                            <p>AI-prioritized cases</p>
-                        </div>
-
-                        <button class="view-button"
-                            onclick="showPage('complaints')">
-                            View All
-                        </button>
-
-                    </div>
-
-
-                    <div class="complaint-list">
-
-                        <div class="complaint">
-
-                            <div class="complaint-icon red-bg">
-                                !
-                            </div>
-
-                            <div>
-                                <strong>Service not completed</strong>
-                                <span>Customer #1042</span>
-                            </div>
-
-                            <span class="priority high">
-                                HIGH
-                            </span>
-
-                        </div>
-
-
-                        <div class="complaint">
-
-                            <div class="complaint-icon orange-bg">
-                                !
-                            </div>
-
-                            <div>
-                                <strong>Payment issue</strong>
-                                <span>Customer #1088</span>
-                            </div>
-
-                            <span class="priority medium">
-                                MEDIUM
-                            </span>
-
-                        </div>
-
-
-                        <div class="complaint">
-
-                            <div class="complaint-icon blue-bg">
-                                !
-                            </div>
-
-                            <div>
-                                <strong>Late arrival</strong>
-                                <span>Customer #1091</span>
-                            </div>
-
-                            <span class="priority low">
-                                LOW
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- RECENT BOOKINGS -->
-
-            <div class="panel bookings-panel">
-
-                <div class="panel-header">
-
-                    <div>
-                        <h2>Recent Bookings</h2>
-                        <p>Live platform activity</p>
-                    </div>
-
-                    <button class="view-button"
-                        onclick="showPage('bookings')">
-                        View All
-                    </button>
-
-                </div>
-
-
-                <div class="table-container">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-                                <th>Booking ID</th>
-                                <th>Customer</th>
-                                <th>Service</th>
-                                <th>Worker</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                            <tr>
-                                <td>#BK1024</td>
-                                <td>Priya</td>
-                                <td>AC Repair</td>
-                                <td>Ravi Kumar</td>
-                                <td>₹850</td>
-                                <td>
-                                    <span class="table-status ongoing">
-                                        Ongoing
-                                    </span>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>#BK1023</td>
-                                <td>Arun</td>
-                                <td>Plumbing</td>
-                                <td>Anitha S</td>
-                                <td>₹500</td>
-                                <td>
-                                    <span class="table-status completed">
-                                        Completed
-                                    </span>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>#BK1022</td>
-                                <td>Meena</td>
-                                <td>Cleaning</td>
-                                <td>Divya R</td>
-                                <td>₹700</td>
-                                <td>
-                                    <span class="table-status pending">
-                                        Pending
-                                    </span>
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- OTHER PAGES -->
-
-        <section id="users" class="page">
-
-            <div class="empty-page">
-
-                <div>👥</div>
-
-                <h2>User Management</h2>
-
-                <p>
-                    Manage customers, workers, accounts and access permissions.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="workers" class="page">
-
-            <div class="empty-page">
-
-                <div>👷</div>
-
-                <h2>Worker Verification</h2>
-
-                <p>
-                    Review worker identity, skills, documents and AI risk assessments.
-                </p>
-
-                <button class="primary-button">
-                    Open Verification Queue
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <section id="services" class="page">
-
-            <div class="empty-page">
-
-                <div>🛠</div>
-
-                <h2>Service Management</h2>
-
-                <p>
-                    Manage service categories, pricing rules and availability.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="bookings" class="page">
-
-            <div class="empty-page">
-
-                <div>📅</div>
-
-                <h2>Booking Management</h2>
-
-                <p>
-                    Monitor active, completed and cancelled bookings.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="complaints" class="page">
-
-            <div class="empty-page">
-
-                <div>⚠</div>
-
-                <h2>Complaints & Disputes</h2>
-
-                <p>
-                    AI categorizes complaints and identifies cases requiring review.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="payments" class="page">
-
-            <div class="empty-page">
-
-                <div>₹</div>
-
-                <h2>Payments</h2>
-
-                <p>
-                    Monitor payments, refunds, failed transactions and invoices.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="fraud" class="page">
-
-            <div class="empty-page">
-
-                <div>🛡</div>
-
-                <h2>Fraud & Safety</h2>
-
-                <p>
-                    Monitor suspicious accounts, transactions and platform activity.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="ai" class="page">
-
-            <div class="empty-page">
-
-                <div>🤖</div>
-
-                <h2>AI Decisions</h2>
-
-                <p>
-                    Monitor AI recommendations, confidence levels and human-review cases.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="reports" class="page">
-
-            <div class="empty-page">
-
-                <div>📊</div>
-
-                <h2>Reports & Analytics</h2>
-
-                <p>
-                    Analyze users, bookings, workers, revenue and platform performance.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <section id="settings" class="page">
-
-            <div class="empty-page">
-
-                <div>⚙</div>
-
-                <h2>Settings</h2>
-
-                <p>
-                    Configure platform rules, AI thresholds and administrator settings.
-                </p>
-
-            </div>
-
-        </section>
-
+    <main>
+      <header><div><p class="eyebrow">CUSTOMER DASHBOARD</p><h2 id="pageTitle">Hello, Yadhu 👋</h2></div><div class="header-actions"><select id="language" aria-label="Language"><option>English</option><option>हिंदी</option><option>తెలుగు</option></select><button id="emergency" class="emergency">Emergency support</button><button class="avatar">Y</button></div></header>
+
+      <section id="home" class="page active">
+        <div class="hero"><div><span class="pill">✓ Verified cooperative workers</span><h1>What do you need help with?</h1><p>Choose a service and get a trusted local professional.</p><button class="primary go-book">Book a service →</button></div><div class="hero-icon">⌂</div></div>
+        <div class="section-heading"><div><h3>Popular services</h3><p>Select a category to start your booking.</p></div><button class="text-btn go-book">View all services →</button></div>
+        <div id="serviceGrid" class="service-grid"></div>
+        <div class="trust-row"><div>🔒 <span><strong>Privacy protected</strong><br>Details shared after worker acceptance</span></div><div>★ <span><strong>Rated workers</strong><br>Reviews from verified customers</span></div><div>✓ <span><strong>Cooperative verified</strong><br>Skilled workers from local cooperatives</span></div></div>
+      </section>
+
+      <section id="book" class="page">
+        <div class="page-intro"><h3>Book a service</h3><p>Tell us what you need. You will see the final details before booking.</p></div>
+        <form id="bookingForm" class="booking-form">
+          <div class="form-card"><h3>1. Select your service</h3><div id="bookingServices" class="booking-services"></div><label for="need">What do you need help with?</label><textarea id="need" required placeholder="Example: Kitchen tap is leaking and needs repair."></textarea><label class="check-line"><input id="urgent" type="checkbox" /> <span>⚡ I need urgent service today</span></label></div>
+          <div class="form-card"><h3>2. Location & schedule</h3><div class="two-cols"><label>House / flat number<input id="house" required placeholder="Flat 12B" /></label><label>Street / locality<input id="street" required placeholder="Madhapur" /></label><label>City<input id="city" required placeholder="Hyderabad" /></label><label>Pincode<input id="pincode" required pattern="[0-9]{6}" placeholder="500081" /></label></div><label>Map location (demo)<div class="map-pin">📍 Your location will be verified before confirmation <button type="button" id="verifyLocation">Verify location</button></div></label><div class="two-cols"><label>Preferred date<input id="date" type="date" required /></label><label>Preferred time<select id="time"><option>9:00 AM – 12:00 PM</option><option>12:00 PM – 3:00 PM</option><option>3:00 PM – 6:00 PM</option><option>6:00 PM – 9:00 PM</option></select></label></div></div>
+          <div class="form-card"><h3>3. Extra details</h3><div class="two-cols"><label>Upload photo/video <input id="photo" type="file" accept="image/*,video/*" /></label><label>Budget preference<select id="budget"><option>Show estimated price</option><option>Under ₹300</option><option>₹300 – ₹700</option><option>₹700 – ₹1,500</option></select></label><label>Payment method<select id="payment"><option>Cash after service</option><option>UPI</option><option>Online payment</option></select></label><label>Language preference<select id="bookingLanguage"><option>English</option><option>Hindi</option><option>Telugu</option></select></label></div><label>Landmark or special instructions<textarea id="notes" placeholder="Example: Blue gate near the park; please call on arrival."></textarea></label><label class="check-line"><input id="advance" type="checkbox" /> <span>Pay a refundable ₹49 advance to help prevent fake bookings</span></label></div>
+          <button class="primary submit-booking" type="submit">Review & confirm booking →</button>
+        </form>
+      </section>
+
+      <section id="bookings" class="page"><div class="page-intro"><h3>My bookings</h3><p>Track accepted workers and manage your active requests.</p></div><div id="activeBooking" class="empty-state"><div>🗓</div><h3>No active booking</h3><p>Need help at home? Book a verified worker in a few minutes.</p><button class="primary go-book">Book a service</button></div></section>
+      <section id="history" class="page"><div class="page-intro"><h3>Booking history & invoices</h3><p>Completed bookings and payment receipts will be kept here.</p></div><div id="historyList" class="empty-state"><div>▤</div><h3>No completed services yet</h3><p>Your invoices will appear here after a service is completed.</p></div></section>
+      <section id="support" class="page"><div class="page-intro"><h3>Help & support</h3><p>We are here if something did not go as expected.</p></div><div class="support-grid"><article><span>☎</span><h3>Call support</h3><p>Talk to the SAH support team.</p><button class="secondary" id="callSupport">Call support</button></article><article><span>◉</span><h3>Chat safely</h3><p>Chat with your assigned worker without exposing your number.</p><button class="secondary" id="chatSupport">Open chat</button></article><article><span>⚑</span><h3>Report a problem</h3><p>Report a suspicious booking, worker, or service issue.</p><button class="secondary" id="reportProblem">Report issue</button></article></div></section>
     </main>
+  </div>
 
-
-    <script src="script.js"></script>
-
+  <div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="close">×</button><div id="modalContent"></div></div></div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="script.js"></script>
 </body>
 </html>
