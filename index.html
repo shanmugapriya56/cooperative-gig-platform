@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">AI</div>
+
+            <div>
+                <h2>AI ADMIN</h2>
+                <span>Control Center</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" onclick="showPage('dashboard', this)">
+                <span>▦</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" onclick="showPage('users', this)">
+                <span>👥</span>
+                Users
+            </button>
+
+            <button class="nav-item" onclick="showPage('workers', this)">
+                <span>👷</span>
+                Worker Verification
+            </button>
+
+            <button class="nav-item" onclick="showPage('services', this)">
+                <span>🛠</span>
+                Services
+            </button>
+
+            <button class="nav-item" onclick="showPage('bookings', this)">
+                <span>📅</span>
+                Bookings
+            </button>
+
+            <button class="nav-item" onclick="showPage('complaints', this)">
+                <span>⚠</span>
+                Complaints
+            </button>
+
+            <button class="nav-item" onclick="showPage('payments', this)">
+                <span>₹</span>
+                Payments
+            </button>
+
+            <button class="nav-item" onclick="showPage('fraud', this)">
+                <span>🛡</span>
+                Fraud & Safety
+            </button>
+
+            <button class="nav-item" onclick="showPage('ai', this)">
+                <span>🤖</span>
+                AI Decisions
+            </button>
+
+            <button class="nav-item" onclick="showPage('reports', this)">
+                <span>📊</span>
+                Reports
+            </button>
+
+            <button class="nav-item" onclick="showPage('settings', this)">
+                <span>⚙</span>
+                Settings
+            </button>
+
+        </nav>
+
+        <div class="admin-profile">
+
+            <div class="avatar">
+                A
+            </div>
+
+            <div>
+                <strong>AI Administrator</strong>
+                <small>System Manager</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN AREA -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">
+                    AI-powered platform monitoring and governance
+                </p>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="notification">
+                    🔔
+                    <span>3</span>
+                </button>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    AI System Online
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD PAGE -->
+        <section id="dashboard" class="page active-page">
+
+            <!-- STAT CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">👥</div>
+
+                    <div>
+                        <p>Total Users</p>
+                        <h2>2,450</h2>
+                        <small class="positive">↑ 12.5% this month</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">👷</div>
+
+                    <div>
+                        <p>Active Workers</p>
+                        <h2>620</h2>
+                        <small class="positive">↑ 8.2% this month</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">📅</div>
+
+                    <div>
+                        <p>Active Bookings</p>
+                        <h2>184</h2>
+                        <small>Currently in progress</small>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon red">⚠</div>
+
+                    <div>
+                        <p>Pending Issues</p>
+                        <h2>17</h2>
+                        <small class="negative">5 require attention</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- AI OVERVIEW -->
+
+            <div class="ai-banner">
+
+                <div class="ai-circle">
+                    🤖
+                </div>
+
+                <div class="ai-text">
+
+                    <h2>AI Administration is Active</h2>
+
+                    <p>
+                        The AI is monitoring worker verification,
+                        complaints, fraud signals and platform activity.
+                    </p>
+
+                </div>
+
+                <div class="ai-score">
+
+                    <span>System Health</span>
+
+                    <strong>98.4%</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT GRID -->
+
+            <div class="content-grid">
+
+
+                <!-- WORKER VERIFICATION -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>Worker Verification</h2>
+                            <p>AI-processed applications</p>
+                        </div>
+
+                        <button class="view-button"
+                            onclick="showPage('workers')">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div class="worker-list">
+
+                        <div class="worker">
+
+                            <div class="worker-avatar">
+                                RK
+                            </div>
+
+                            <div class="worker-info">
+
+                                <strong>Ravi Kumar</strong>
+
+                                <span>Electrician</span>
+
+                            </div>
+
+                            <span class="badge low">
+                                Low Risk
+                            </span>
+
+                            <button class="review-button"
+                                onclick="reviewWorker('Ravi Kumar')">
+                                Review
+                            </button>
+
+                        </div>
+
+
+                        <div class="worker">
+
+                            <div class="worker-avatar">
+                                AS
+                            </div>
+
+                            <div class="worker-info">
+
+                                <strong>Anitha S</strong>
+
+                                <span>Plumber</span>
+
+                            </div>
+
+                            <span class="badge medium">
+                                Review
+                            </span>
+
+                            <button class="review-button"
+                                onclick="reviewWorker('Anitha S')">
+                                Review
+                            </button>
+
+                        </div>
+
+
+                        <div class="worker">
+
+                            <div class="worker-avatar">
+                                MK
+                            </div>
+
+                            <div class="worker-info">
+
+                                <strong>Manoj Kumar</strong>
+
+                                <span>AC Technician</span>
+
+                            </div>
+
+                            <span class="badge low">
+                                Low Risk
+                            </span>
+
+                            <button class="review-button"
+                                onclick="reviewWorker('Manoj Kumar')">
+                                Review
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLAINTS -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>Recent Complaints</h2>
+                            <p>AI-prioritized cases</p>
+                        </div>
+
+                        <button class="view-button"
+                            onclick="showPage('complaints')">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div class="complaint-list">
+
+                        <div class="complaint">
+
+                            <div class="complaint-icon red-bg">
+                                !
+                            </div>
+
+                            <div>
+                                <strong>Service not completed</strong>
+                                <span>Customer #1042</span>
+                            </div>
+
+                            <span class="priority high">
+                                HIGH
+                            </span>
+
+                        </div>
+
+
+                        <div class="complaint">
+
+                            <div class="complaint-icon orange-bg">
+                                !
+                            </div>
+
+                            <div>
+                                <strong>Payment issue</strong>
+                                <span>Customer #1088</span>
+                            </div>
+
+                            <span class="priority medium">
+                                MEDIUM
+                            </span>
+
+                        </div>
+
+
+                        <div class="complaint">
+
+                            <div class="complaint-icon blue-bg">
+                                !
+                            </div>
+
+                            <div>
+                                <strong>Late arrival</strong>
+                                <span>Customer #1091</span>
+                            </div>
+
+                            <span class="priority low">
+                                LOW
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECENT BOOKINGS -->
+
+            <div class="panel bookings-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Bookings</h2>
+                        <p>Live platform activity</p>
+                    </div>
+
+                    <button class="view-button"
+                        onclick="showPage('bookings')">
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Worker</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>#BK1024</td>
+                                <td>Priya</td>
+                                <td>AC Repair</td>
+                                <td>Ravi Kumar</td>
+                                <td>₹850</td>
+                                <td>
+                                    <span class="table-status ongoing">
+                                        Ongoing
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>#BK1023</td>
+                                <td>Arun</td>
+                                <td>Plumbing</td>
+                                <td>Anitha S</td>
+                                <td>₹500</td>
+                                <td>
+                                    <span class="table-status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>#BK1022</td>
+                                <td>Meena</td>
+                                <td>Cleaning</td>
+                                <td>Divya R</td>
+                                <td>₹700</td>
+                                <td>
+                                    <span class="table-status pending">
+                                        Pending
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OTHER PAGES -->
+
+        <section id="users" class="page">
+
+            <div class="empty-page">
+
+                <div>👥</div>
+
+                <h2>User Management</h2>
+
+                <p>
+                    Manage customers, workers, accounts and access permissions.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="workers" class="page">
+
+            <div class="empty-page">
+
+                <div>👷</div>
+
+                <h2>Worker Verification</h2>
+
+                <p>
+                    Review worker identity, skills, documents and AI risk assessments.
+                </p>
+
+                <button class="primary-button">
+                    Open Verification Queue
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section id="services" class="page">
+
+            <div class="empty-page">
+
+                <div>🛠</div>
+
+                <h2>Service Management</h2>
+
+                <p>
+                    Manage service categories, pricing rules and availability.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="bookings" class="page">
+
+            <div class="empty-page">
+
+                <div>📅</div>
+
+                <h2>Booking Management</h2>
+
+                <p>
+                    Monitor active, completed and cancelled bookings.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="complaints" class="page">
+
+            <div class="empty-page">
+
+                <div>⚠</div>
+
+                <h2>Complaints & Disputes</h2>
+
+                <p>
+                    AI categorizes complaints and identifies cases requiring review.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="payments" class="page">
+
+            <div class="empty-page">
+
+                <div>₹</div>
+
+                <h2>Payments</h2>
+
+                <p>
+                    Monitor payments, refunds, failed transactions and invoices.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="fraud" class="page">
+
+            <div class="empty-page">
+
+                <div>🛡</div>
+
+                <h2>Fraud & Safety</h2>
+
+                <p>
+                    Monitor suspicious accounts, transactions and platform activity.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="ai" class="page">
+
+            <div class="empty-page">
+
+                <div>🤖</div>
+
+                <h2>AI Decisions</h2>
+
+                <p>
+                    Monitor AI recommendations, confidence levels and human-review cases.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="reports" class="page">
+
+            <div class="empty-page">
+
+                <div>📊</div>
+
+                <h2>Reports & Analytics</h2>
+
+                <p>
+                    Analyze users, bookings, workers, revenue and platform performance.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="settings" class="page">
+
+            <div class="empty-page">
+
+                <div>⚙</div>
+
+                <h2>Settings</h2>
+
+                <p>
+                    Configure platform rules, AI thresholds and administrator settings.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
