@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,10 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SahaSetu - Worker Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+>>>>>>> 5a4fed95160be9d74e4dd0711c9d3b12c3d7ea01
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <section id="loginScreen" class="login-screen">
 
   <div class="login-card">
@@ -693,6 +706,1325 @@
 </div>
 
 <div id="toast" class="toast hidden"></div>
+=======
+<!-- =====================================================
+     AUTHENTICATION
+===================================================== -->
+
+<div class="auth-screen" id="authScreen">
+
+    <div class="auth-card">
+
+        <div class="auth-brand">
+
+            <div class="auth-logo">
+                S
+            </div>
+
+            <div>
+                <h1>SahaSetu</h1>
+                <p>Worker Portal</p>
+            </div>
+
+        </div>
+
+
+        <!-- ================= LOGIN ================= -->
+
+        <div id="loginStep">
+
+            <h2>Welcome back</h2>
+
+            <p class="auth-muted">
+                Login with your mobile number to access your SahaSetu worker dashboard.
+            </p>
+
+            <label>Mobile Number</label>
+
+            <div class="phone-input">
+
+                <span>+91</span>
+
+                <input
+                    id="loginPhone"
+                    type="tel"
+                    maxlength="10"
+                    placeholder="Enter 10-digit mobile number"
+                >
+
+            </div>
+
+            <button
+                class="auth-primary"
+                id="sendLoginOtp"
+            >
+                Send OTP
+            </button>
+
+            <p class="demo-note">
+                Prototype OTP: <b>1234</b>
+            </p>
+
+            <p class="auth-switch">
+                New worker?
+                <button id="showRegister">
+                    Create account
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- ================= LOGIN OTP ================= -->
+
+        <div
+            id="loginOtpStep"
+            class="hidden"
+        >
+
+            <h2>Verify mobile number</h2>
+
+            <p class="auth-muted">
+                Enter the OTP sent to
+                <b id="loginPhonePreview"></b>
+            </p>
+
+            <input
+                id="loginOtp"
+                class="auth-otp"
+                type="tel"
+                maxlength="4"
+                placeholder="••••"
+            >
+
+            <button
+                class="auth-primary"
+                id="verifyLoginOtp"
+            >
+                Verify & Login
+            </button>
+
+            <button
+                class="auth-text"
+                id="backToLogin"
+            >
+                Change number
+            </button>
+
+            <p class="demo-note">
+                For this prototype use OTP <b>1234</b>.
+            </p>
+
+        </div>
+
+
+        <!-- ================= REGISTRATION ================= -->
+
+        <div
+            id="registerStep"
+            class="hidden"
+        >
+
+            <h2>Create Worker Account</h2>
+
+            <p class="auth-muted">
+                Register your details to join SahaSetu.
+            </p>
+
+
+            <!-- NAME -->
+
+            <label>Full Name</label>
+
+            <input
+                id="regName"
+                type="text"
+                placeholder="Enter your full name"
+            >
+
+
+            <!-- PHONE -->
+
+            <label>Mobile Number</label>
+
+            <div class="phone-input">
+
+                <span>+91</span>
+
+                <input
+                    id="regPhone"
+                    type="tel"
+                    maxlength="10"
+                    placeholder="10-digit mobile number"
+                >
+
+            </div>
+
+
+            <!-- WORK TYPE -->
+
+            <label>How do you want to work?</label>
+
+            <div class="work-choice">
+
+                <button
+                    class="work-choice-btn active"
+                    data-work-type="individual"
+                    type="button"
+                >
+                    👤 Individual
+                </button>
+
+                <button
+                    class="work-choice-btn"
+                    data-work-type="cooperative"
+                    type="button"
+                >
+                    🤝 Cooperative
+                </button>
+
+            </div>
+
+
+            <!-- COOPERATIVE DETAILS -->
+
+            <div
+                id="cooperativeFields"
+                class="hidden"
+            >
+
+                <label>Cooperative Society Name</label>
+
+                <input
+                    id="coopName"
+                    type="text"
+                    placeholder="Enter cooperative society name"
+                >
+
+
+                <label>Your Role in Cooperative</label>
+
+                <select id="coopRole">
+
+                    <option value="">
+                        Select role
+                    </option>
+
+                    <option value="Member">
+                        Member
+                    </option>
+
+                    <option value="Team Leader">
+                        Team Leader
+                    </option>
+
+                    <option value="Secretary">
+                        Secretary
+                    </option>
+
+                    <option value="Head">
+                        Head
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- SKILL -->
+
+            <label>Primary Skill</label>
+
+            <select id="regSkill">
+
+                <option value="">
+                    Select your skill
+                </option>
+
+                <option value="Electrician">
+                    Electrician
+                </option>
+
+                <option value="Plumber">
+                    Plumber
+                </option>
+
+                <option value="Carpenter">
+                    Carpenter
+                </option>
+
+                <option value="Painter">
+                    Painter
+                </option>
+
+                <option value="Cleaner">
+                    Cleaner
+                </option>
+
+                <option value="AC Technician">
+                    AC Technician
+                </option>
+
+                <option value="Appliance Repair">
+                    Appliance Repair
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <!-- LANGUAGE -->
+
+            <label>Preferred Language</label>
+
+            <select id="regLanguage">
+
+                <option value="en">
+                    English
+                </option>
+
+                <option value="te">
+                    తెలుగు (Telugu)
+                </option>
+
+                <option value="hi">
+                    हिन्दी (Hindi)
+                </option>
+
+                <option value="ta">
+                    தமிழ் (Tamil)
+                </option>
+
+                <option value="ml">
+                    മലയാളം (Malayalam)
+                </option>
+
+            </select>
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <button
+                class="auth-primary"
+                id="registerBtn"
+            >
+                Create Account
+            </button>
+
+
+            <p class="demo-note">
+                Your details are saved locally in this prototype.
+            </p>
+
+
+            <p class="auth-switch">
+
+                Already registered?
+
+                <button id="showLogin">
+                    Login
+                </button>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<div
+    class="app"
+    id="app"
+>
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <div>
+                <h2>SahaSetu</h2>
+                <span>Worker Portal</span>
+            </div>
+
+        </div>
+
+
+        <!-- WORKER PROFILE -->
+
+        <div class="worker-mini-profile">
+
+            <div
+                class="avatar"
+                id="headerAvatar"
+            >
+                RK
+            </div>
+
+            <div>
+
+                <strong id="headerName">
+                    Ravi Kumar
+                </strong>
+
+                <small id="headerSkill">
+                    Electrician
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                data-page="dashboard"
+            >
+                <span>🏠</span>
+                <span data-i18n="dashboard">Dashboard</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="requests"
+            >
+                <span>📋</span>
+                <span data-i18n="jobRequests">Job Requests</span>
+
+                <span
+                    class="badge"
+                    id="requestCount"
+                >
+                    3
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="active"
+            >
+                <span>🔧</span>
+                <span data-i18n="activeJobs">Active Jobs</span>
+
+                <span
+                    class="badge green"
+                    id="activeCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="earnings"
+            >
+                <span>💰</span>
+                <span data-i18n="earnings">Earnings</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="profile"
+            >
+                <span>👤</span>
+                <span data-i18n="myProfile">My Profile</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                id="voiceBtn"
+            >
+                <span>🎙️</span>
+                <span data-i18n="voiceAssistant">Voice Assistant</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                id="switchAccountBtn"
+            >
+                <span>⇄</span>
+                <span data-i18n="switchAccount">Switch Account</span>
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="availability">
+
+                <div>
+
+                    <strong data-i18n="availability">
+                        Availability
+                    </strong>
+
+                    <small id="availabilityText">
+                        You are Available
+                    </small>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="availabilityToggle"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <button
+                class="sos-button"
+                id="sosBtn"
+            >
+                🆘 <span data-i18n="emergency">Emergency / SOS</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Good morning 👋
+                </h1>
+
+                <p id="pageSubtitle">
+                    Here is your SahaSetu work overview.
+                </p>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    class="notification-btn"
+                    id="notificationBtn"
+                >
+                    🔔
+                    <span>2</span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             DASHBOARD
+        ===================================================== -->
+
+        <section
+            class="page active-page"
+            id="dashboard"
+        >
+
+            <div class="stats-grid">
+
+
+                <!-- REQUESTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span data-i18n="newRequests">
+                            New Requests
+                        </span>
+
+                        <strong id="dashboardRequestCount">
+                            3
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🔧
+                    </div>
+
+                    <div>
+
+                        <span data-i18n="activeJobs">
+                            Active Jobs
+                        </span>
+
+                        <strong id="dashboardActiveCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TODAY EARNINGS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <span data-i18n="todayEarnings">
+                            Today's Earnings
+                        </span>
+
+                        <strong id="dashboardTodayEarnings">
+                            ₹850
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RATING -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <span data-i18n="rating">
+                            Rating
+                        </span>
+
+                        <strong id="dashboardRating">
+                            4.8
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- JOB REQUEST SECTION -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2 data-i18n="newJobRequests">
+                        New Job Requests
+                    </h2>
+
+                    <p data-i18n="nearbyCustomers">
+                        Nearby customers looking for your services.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="view-btn"
+                    data-page="requests"
+                    data-i18n="viewAll"
+                >
+                    View All →
+                </button>
+
+            </div>
+
+
+            <div id="dashboardRequests"></div>
+
+
+
+            <!-- RESERVED SPACE -->
+
+            <div class="reserved-space">
+
+                <div class="reserved-plus">
+                    ＋
+                </div>
+
+                <h3 data-i18n="futureFeatures">
+                    Space reserved for future SahaSetu features
+                </h3>
+
+                <p data-i18n="blankSpace">
+                    This area is intentionally blank for now.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             JOB REQUESTS
+        ===================================================== -->
+
+        <section
+            class="page"
+            id="requests"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2 data-i18n="jobRequests">
+                        Job Requests
+                    </h2>
+
+                    <p data-i18n="reviewRequests">
+                        Review and respond to customer requests.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="allRequests"></div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ACTIVE JOBS
+        ===================================================== -->
+
+        <section
+            class="page"
+            id="active"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2 data-i18n="activeJobs">
+                        Active Jobs
+                    </h2>
+
+                    <p data-i18n="manageServices">
+                        Manage your accepted customer services.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="activeJobs"></div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             EARNINGS
+        ===================================================== -->
+
+        <section
+            class="page"
+            id="earnings"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2 data-i18n="myEarnings">
+                        My Earnings
+                    </h2>
+
+                    <p data-i18n="trackIncome">
+                        Track your income from SahaSetu.
+                    </p>
+
+                </div>
+
+
+                <select id="earningPeriod">
+
+                    <option
+                        value="today"
+                        data-i18n="today"
+                    >
+                        Today
+                    </option>
+
+                    <option
+                        value="week"
+                        data-i18n="thisWeek"
+                    >
+                        This Week
+                    </option>
+
+                    <option
+                        value="month"
+                        data-i18n="thisMonth"
+                    >
+                        This Month
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="earnings-main">
+
+
+                <div class="earning-card">
+
+                    <span data-i18n="totalEarnings">
+                        Total Earnings
+                    </span>
+
+                    <strong id="earningValue">
+                        ₹850
+                    </strong>
+
+                    <small data-i18n="updatedNow">
+                        Updated just now
+                    </small>
+
+                </div>
+
+
+                <div class="earning-card">
+
+                    <span data-i18n="completedJobs">
+                        Completed Jobs
+                    </span>
+
+                    <strong id="completedJobsValue">
+                        2
+                    </strong>
+
+                    <small id="completedJobsPeriod">
+                        Today
+                    </small>
+
+                </div>
+
+
+                <div class="earning-card">
+
+                    <span data-i18n="averageJob">
+                        Average / Job
+                    </span>
+
+                    <strong id="averageJobValue">
+                        ₹425
+                    </strong>
+
+                    <small data-i18n="basedCompleted">
+                        Based on completed jobs
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROFILE
+        ===================================================== -->
+
+        <section
+            class="page"
+            id="profile"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2 data-i18n="myProfile">
+                        My Profile
+                    </h2>
+
+                    <p data-i18n="manageInformation">
+                        Manage your worker information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div
+                    class="large-avatar"
+                    id="profileAvatar"
+                >
+                    RK
+                </div>
+
+
+                <div class="profile-main">
+
+                    <h2 id="profileName">
+                        Ravi Kumar
+                    </h2>
+
+                    <p id="profileSkill">
+                        Electrician
+                    </p>
+
+                    <p>
+                        <span data-i18n="workerId">
+                            Worker ID:
+                        </span>
+
+                        <strong id="workerId">
+                            SAH-W-10245
+                        </strong>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-details">
+
+
+                <div>
+
+                    <span data-i18n="fullName">
+                        Full Name
+                    </span>
+
+                    <strong id="detailName">
+                        Ravi Kumar
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span data-i18n="phoneNumber">
+                        Phone Number
+                    </span>
+
+                    <strong id="detailPhone">
+                        +91 XXXXX XXXXX
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span data-i18n="primarySkill">
+                        Primary Skill
+                    </span>
+
+                    <strong id="detailSkill">
+                        Electrician
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span data-i18n="workType">
+                        Work Type
+                    </span>
+
+                    <strong id="detailWorkType">
+                        Individual
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span data-i18n="cooperativeSociety">
+                        Cooperative Society
+                    </span>
+
+                    <strong id="detailCoop">
+                        Not applicable
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span data-i18n="kycStatus">
+                        KYC Status
+                    </span>
+
+                    <strong class="verified">
+                        ✓ <span data-i18n="verified">Verified</span>
+                    </strong>
+
+                </div>
+
+
+                <!-- LANGUAGE -->
+
+                <div class="language-profile">
+
+                    <span data-i18n="preferredLanguage">
+                        Preferred Language
+                    </span>
+
+                    <select id="profileLanguage">
+
+                        <option value="en">
+                            English
+                        </option>
+
+                        <option value="te">
+                            తెలుగు (Telugu)
+                        </option>
+
+                        <option value="hi">
+                            हिन्दी (Hindi)
+                        </option>
+
+                        <option value="ta">
+                            தமிழ் (Tamil)
+                        </option>
+
+                        <option value="ml">
+                            മലയാളം (Malayalam)
+                        </option>
+
+                    </select>
+
+                    <button
+                        class="primary-btn language-save-btn"
+                        id="saveLanguageBtn"
+                    >
+                        Save Language
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     NOTIFICATION PANEL
+===================================================== -->
+
+<div
+    class="notification-panel"
+    id="notificationPanel"
+>
+
+    <h3 data-i18n="notifications">
+        Notifications
+    </h3>
+
+    <div class="notification-item">
+
+        <strong data-i18n="newJob">
+            New Job Request
+        </strong>
+
+        <p data-i18n="newJobMessage">
+            You have a new nearby service request.
+        </p>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <strong data-i18n="paymentReceived">
+            Payment Received
+        </strong>
+
+        <p data-i18n="paymentMessage">
+            Your recent service payment was recorded.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     OTP MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="otpModal"
+>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <h2 data-i18n="customerVerification">
+            Customer Verification
+        </h2>
+
+        <p data-i18n="askCustomerOtp">
+            Ask the customer for their 4-digit OTP.
+        </p>
+
+        <input
+            id="otpInput"
+            type="tel"
+            maxlength="4"
+            placeholder="Enter OTP"
+        >
+
+        <button
+            class="primary-btn"
+            id="verifyOtp"
+            data-i18n="verifyOtp"
+        >
+            Verify OTP
+        </button>
+
+        <small>
+            Prototype OTP: 1234
+        </small>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SOS MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="sosModal"
+>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            onclick="closeSOS()"
+        >
+            ×
+        </button>
+
+        <h2>
+            🆘
+            <span data-i18n="emergencyReport">
+                Emergency / Report
+            </span>
+        </h2>
+
+        <p data-i18n="tellWhatHappened">
+            Tell SahaSetu what happened.
+        </p>
+
+        <textarea
+            id="sosReason"
+            placeholder="Describe the issue..."
+        ></textarea>
+
+        <button
+            class="primary-btn"
+            id="submitSOS"
+            data-i18n="submitReport"
+        >
+            Submit Report
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VOICE ASSISTANT
+===================================================== -->
+
+<div
+    class="voice-assistant"
+    id="voiceAssistant"
+>
+
+    <div class="voice-header">
+
+        <div>
+
+            <h3>
+                🎙️ SahaSetu Voice Assistant
+            </h3>
+
+            <p data-i18n="handsFree">
+                Your hands-free worker assistant
+            </p>
+
+        </div>
+
+        <button onclick="closeVoice()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="voice-body">
+
+        <div class="voice-icon">
+            🎙️
+        </div>
+
+        <p id="voiceStatus">
+            Press Start Listening and speak a command.
+        </p>
+
+
+        <button
+            class="voice-start"
+            id="startVoice"
+        >
+            🎤 Start Listening
+        </button>
+
+
+        <button
+            class="voice-test"
+            id="speakTest"
+        >
+            🔊 Test Voice
+        </button>
+
+
+        <small id="voiceSupport"></small>
+
+
+        <div class="voice-commands">
+
+            <strong data-i18n="trySaying">
+                Try saying:
+            </strong>
+
+            <span>
+                "Show my jobs"
+            </span>
+
+            <span>
+                "Show my earnings"
+            </span>
+
+            <span>
+                "Show active jobs"
+            </span>
+
+            <span>
+                "Go to profile"
+            </span>
+
+            <span>
+                "Open dashboard"
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+>>>>>>> 5a4fed95160be9d74e4dd0711c9d3b12c3d7ea01
 
 <script src="script.js"></script>
 
